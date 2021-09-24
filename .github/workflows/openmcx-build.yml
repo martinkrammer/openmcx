@@ -4,8 +4,10 @@ jobs:
   Build-OpenMCx:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: |
-          echo ${{ github.workspace }}
-          ls ${{ github.workspace }}
-      - uses: ./.github/actions/build-action
+      - name: Checkout OpenMCx
+        uses: actions/checkout@v2
+      - name: Build OpenMCx
+        uses: ./.github/actions/script-action
+        with:
+          entrypoint: /usr/bin/bash
+          args: ./build.sh
