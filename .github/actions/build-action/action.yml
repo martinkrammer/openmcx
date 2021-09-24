@@ -1,0 +1,8 @@
+name: 'OpenMCx build action'
+description: 'Build OpenMCx'
+runs:
+  using: 'docker'
+  image: '../../../docker/Dockerfile'
+  entrypoint: '/usr/bin/bash'
+  args:
+    - './build.sh'
